@@ -1,3 +1,5 @@
+(server-start)
+
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -26,6 +28,17 @@
 (scroll-bar-mode -1)
 
 (repeat-mode 1)
+(auto-insert-mode 1)
+(global-hl-line-mode 1)
+(setq display-time-24hr-format t)
+(setq default-input-method "russian-computer")
+(set-face-attribute 'default nil :font "Iosevka Curly Slab" :height 140)
+(load-theme 'modus-vivendi t)
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(require 'ansi-color)
+(add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
+(add-hook 'compilation-mode-hook 'toggle-truncate-lines)
 
 (setq delete-by-moving-to-trash t)
 (defun system-move-file-to-trash (file)
@@ -35,28 +48,11 @@ When using Homebrew, install it using \"brew install trash\"."
 		nil 0 nil
 		file))
 
-(setq display-time-24hr-format t)
-
-(setq default-input-method "russian-computer")
-
-(set-face-attribute 'default nil :font "Iosevka Curly Slab" :height 140)
-(load-theme 'modus-vivendi t)
-
-(global-hl-line-mode 1)
-
-(server-start)
-
 ;; (desktop-save-mode 1)
 ;; (add-hook 'kill-emacs-hook (lambda () (desktop-save user-emacs-directory)))
 
 (define-key global-map (kbd "C-<f5>") 'compile)
 (define-key global-map (kbd "<f5>") 'recompile)
-
-(fset 'yes-or-no-p 'y-or-n-p)
-
-(require 'ansi-color)
-(add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
-(add-hook 'compilation-mode-hook 'toggle-truncate-lines)
 
 ;; (use-package undo-tree
 ;;   :config
