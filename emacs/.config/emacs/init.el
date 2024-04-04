@@ -266,3 +266,12 @@ When using Homebrew, install it using \"brew install trash\"."
       `((".*" ,emacs-tmp-dir t)))
 (setq auto-save-list-file-prefix
       emacs-tmp-dir)
+
+(use-package multiple-cursors
+  :bind
+  (("C-C"     . mc/edit-lines)
+   ("C->"     . mc/mark-next-like-this)
+   ("C-<"     . mc/mark-previous-like-this)
+   ("C-c C-C" . mc/mark-all-like-this)
+   ("C-\""    . mc/skip-to-next-like-this)
+   ("C-:"     . mc/skip-to-previous-like-this)))
