@@ -54,9 +54,6 @@ When using Homebrew, install it using \"brew install trash\"."
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
-
-(put 'upcase-region 'disabled nil)
-
 (require 'ansi-color)
 (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
 (add-hook 'compilation-mode-hook 'toggle-truncate-lines)
