@@ -284,3 +284,16 @@ When using Homebrew, install it using \"brew install trash\"."
   :bind
   (("M-P" . move-text-up)
    ("M-N" . move-text-down)))
+
+(defun cmmm/duplicate-line ()
+  "Duplicate current line."
+  (interactive)
+  (let ((column (- (point) (point-at-bol)))
+        (line (let ((s (thing-at-point 'line t)))
+                (if s (string-remove-suffix "\n" s) ""))))
+    (move-end-of-line 1)
+    (newline)
+    (insert line)
+    (move-beginning-of-line 1)
+    (forward-char column)))
+(keymap-global-set "C-'" 'cmmm/duplicate-line)
