@@ -279,3 +279,8 @@ When using Homebrew, install it using \"brew install trash\"."
 (use-package contract-region
   :bind
   (("C-M-=" . er/contract-region)))
+
+(use-package move-text
+  :bind
+  (("M-P" . move-text-up)
+   ("M-N" . move-text-down)))
