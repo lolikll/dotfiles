@@ -35,9 +35,7 @@ When using Homebrew, install it using \"brew install trash\"."
 		nil 0 nil
 		file))
 
-;; (display-time-mode 1)
 (setq display-time-24hr-format t)
-;; (display-battery-mode 1)
 
 (setq default-input-method "russian-computer")
 
@@ -121,7 +119,7 @@ When using Homebrew, install it using \"brew install trash\"."
 (use-package orderless
   :init
   ;; (setq orderless-style-dispatchers '(+orderless-consult-dispatch orderless-affix-dispatch)
-        ;; orderless-component-separator #'orderless-escapable-split-on-space)
+  ;; orderless-component-separator #'orderless-escapable-split-on-space)
   (setq completion-styles '(orderless basic)
         completion-category-defaults nil
         completion-category-overrides '((file (styles partial-completion)))))
@@ -226,11 +224,10 @@ When using Homebrew, install it using \"brew install trash\"."
   ;; Optionally make narrowing help available in the minibuffer.
   ;; You may want to use `embark-prefix-help-command' or which-key instead.
   ;; (define-key consult-narrow-map (vconcat consult-narrow-key "?") #'consult-narrow-help)
- )
+  )
 
 (use-package corfu
-  ;; Optional customizations
-  ;; :custom
+  :custom
   ;; (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
   ;; (corfu-auto t)                 ;; Enable auto completion
   ;; (corfu-separator ?\s)          ;; Orderless field separator
@@ -240,15 +237,6 @@ When using Homebrew, install it using \"brew install trash\"."
   ;; (corfu-preselect 'prompt)      ;; Preselect the prompt
   ;; (corfu-on-exact-match nil)     ;; Configure handling of exact matches
   ;; (corfu-scroll-margin 5)        ;; Use scroll margin
-
-  ;; Enable Corfu only for certain modes.
-  ;; :hook ((prog-mode . corfu-mode)
-  ;;        (shell-mode . corfu-mode)
-  ;;        (eshell-mode . corfu-mode))
-
-  ;; Recommended: Enable Corfu globally.
-  ;; This is recommended since Dabbrev can be used globally (M-/).
-  ;; See also `global-corfu-modes'.
   :init
   (global-corfu-mode))
 
@@ -273,11 +261,11 @@ When using Homebrew, install it using \"brew install trash\"."
   ;; Enable recursive minibuffers
   (setq enable-recursive-minibuffers t))
 
-    ;; Save all tempfiles in $TMPDIR/emacs$UID/                                                        
-    (defconst emacs-tmp-dir (expand-file-name (format "emacs%d" (user-uid)) temporary-file-directory))
-    (setq backup-directory-alist
-        `((".*" . ,emacs-tmp-dir)))
-    (setq auto-save-file-name-transforms
-        `((".*" ,emacs-tmp-dir t)))
-    (setq auto-save-list-file-prefix
-        emacs-tmp-dir)
+;; Save all tempfiles in $TMPDIR/emacs$UID/
+(defconst emacs-tmp-dir (expand-file-name (format "emacs%d" (user-uid)) temporary-file-directory))
+(setq backup-directory-alist
+      `((".*" . ,emacs-tmp-dir)))
+(setq auto-save-file-name-transforms
+      `((".*" ,emacs-tmp-dir t)))
+(setq auto-save-list-file-prefix
+      emacs-tmp-dir)
