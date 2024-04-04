@@ -1,0 +1,8 @@
+# -*- mode: org -*-
+#+title: Dotfiles
+* Usage:
+** Linking dotfiles
+#+begin_src sh
+cd /path/to/repo/root/
+stow */
+#+end_src
