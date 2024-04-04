@@ -275,3 +275,7 @@ When using Homebrew, install it using \"brew install trash\"."
    ("C-c C-C" . mc/mark-all-like-this)
    ("C-\""    . mc/skip-to-next-like-this)
    ("C-:"     . mc/skip-to-previous-like-this)))
+
+(use-package contract-region
+  :bind
+  (("C-M-=" . er/contract-region)))
