@@ -297,3 +297,7 @@ When using Homebrew, install it using \"brew install trash\"."
     (move-beginning-of-line 1)
     (forward-char column)))
 (keymap-global-set "C-'" 'cmmm/duplicate-line)
+
+(use-package hl-todo
+  :config
+  (global-hl-todo-mode 1))
