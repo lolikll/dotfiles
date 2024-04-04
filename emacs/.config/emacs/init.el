@@ -265,12 +265,12 @@ When using Homebrew, install it using \"brew install trash\"."
 
 (use-package multiple-cursors
   :bind
-  (("C-C"     . mc/edit-lines)
-   ("C->"     . mc/mark-next-like-this)
-   ("C-<"     . mc/mark-previous-like-this)
-   ("C-c C-C" . mc/mark-all-like-this)
-   ("C-\""    . mc/skip-to-next-like-this)
-   ("C-:"     . mc/skip-to-previous-like-this)))
+  (("C-S-c"     . mc/edit-lines)
+   ("C->"       . mc/mark-next-like-this)
+   ("C-<"       . mc/mark-previous-like-this)
+   ("C-c C-S-c" . mc/mark-all-like-this)
+   ("C-\""      . mc/skip-to-next-like-this)
+   ("C-:"       . mc/skip-to-previous-like-this)))
 
 (use-package contract-region
   :bind
